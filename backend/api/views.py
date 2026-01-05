@@ -4,12 +4,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import RifUser
 from .serializers import UserSerializer
+from django.shortcuts import get_object_or_404
+
 
 
 
 # Create your views here.
 
-class index(APIView):
+class Users(APIView):
     def get(self,request):
         users=RifUser.objects.all()
         serializer=UserSerializer(users,many=True)
@@ -23,9 +25,8 @@ class index(APIView):
         return Response(serializer.errors)
     
 
-# def create_user(request):
-#     email = "a2@admin.com"
-#     password = "123454546546"
-#     username = "admin2"
-#     RifUser.objects.create_user(email,password,username=username)
-#     return HttpResponse("done")
+class User(APIView):
+    def get(self,request,pk):
+        user = get_object_or_404(RifUser, id=pk)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
