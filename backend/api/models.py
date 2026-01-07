@@ -29,7 +29,7 @@ class  UserManager(BaseUserManager):
 
 
 class RifUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
@@ -37,8 +37,8 @@ class RifUser(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ['username']  # nothing extra required on createsuperuser
+    USERNAME_FIELD = "username"
+#     REQUIRED_FIELDS = ['username']  # nothing extra required on createsuperuser
 
     def __str__(self):
         return self.username

@@ -19,7 +19,7 @@ export default function Dashboard() {
     const username = formData.get("username");
     console.log(email, password, username);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/", {
+      const res = await fetch("http://127.0.0.1:8000/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

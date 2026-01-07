@@ -24,5 +24,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 
     def create(self, validated_data):
-        user = RifUser.objects.create_user(**validated_data)
+        user = RifUser.objects.create_user(**validated_data,is_active=False)
         return user
+
