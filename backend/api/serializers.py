@@ -27,3 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
         user = RifUser.objects.create_user(**validated_data,is_active=False)
         return user
 
+class AdminUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=RifUser
+        fields = ["username","is_active","is_staff","email","is_admin"]
