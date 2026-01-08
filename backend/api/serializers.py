@@ -30,4 +30,4 @@ class UserSerializer(serializers.ModelSerializer):
 class AdminUserSerializer(serializers.ModelSerializer):
     class Meta:
         model=RifUser
-        fields = ["username","is_active","is_staff","email","is_admin"]
+        fields = ["id","username","is_active","is_staff","email","is_admin"]

@@ -52,12 +52,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
@@ -148,6 +148,5 @@ EMAIL_HOST_USER = 'riftestrif@gmail.com'
 EMAIL_HOST_PASSWORD =os.getenv("APP_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-print("APP_PASSWORD:", os.getenv("APP_PASSWORD"))
 
 

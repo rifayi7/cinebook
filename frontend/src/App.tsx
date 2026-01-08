@@ -1,9 +1,18 @@
-import Dashboard from "./pages/Admin/DashBoard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AdminDashBoard from "./pages/Admin/AdminDashBoard";
+import SingleUserForAdmin from "./pages/Admin/SingleUserForAdmin";
+import IndexPage from "./pages/IndexPage";
 
 function App() {
   return (
     <>
-      <Dashboard />
+      <BrowserRouter>
+        <Routes>
+          <Route path="admin/users" element={<AdminDashBoard />} />
+          <Route path="admin/user/:id" element={<SingleUserForAdmin />} />
+          <Route path="/" element={<IndexPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
